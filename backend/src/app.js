@@ -1,7 +1,7 @@
 import express from 'express'
 import dotenv from 'dotenv'
 
-
+// local module
 import authRoute from './routes/auth.route.js'
 import { connectDB } from './lib/db.js'
 
@@ -10,7 +10,10 @@ const app = express()
 
 dotenv.config()
 
-connectDB();
+
+connectDB()
+
+app.use(express.json())
 
 app.use("/api/auth", authRoute)
 
